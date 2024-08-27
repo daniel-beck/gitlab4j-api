@@ -2200,6 +2200,15 @@ public class ProjectApi extends AbstractApi implements Constants {
     }
 
     /**
+     * @deprecated Use {@link #addHook(Object, String, org.gitlab4j.api.models.ProjectHook, Boolean, String)}
+     */
+    @Deprecated
+    public ProjectHook addHook(Object projectIdOrPath, String url, ProjectHook enabledHooks,
+                               boolean enableSslVerification, String secretToken) throws GitLabApiException {
+        return addHook(projectIdOrPath, url, enabledHooks, (Boolean) enableSslVerification, secretToken);
+    }
+
+    /**
      * Adds a hook to project.
      *
      * <pre><code>GitLab Endpoint: POST /projects/:id/hooks</code></pre>
